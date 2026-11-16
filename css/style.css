@@ -1,0 +1,63 @@
+:root{
+    --couleur-bg:#FFFDB9;
+    --couleur-secondaire:rgba(128, 128, 128, 0.418);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Intel+One+Mono:ital,wght@0,300..700;1,300..700&display=swap');
+
+body{
+    width: 100vw;
+    /* padding: 1rem; */
+    background-color: var(--couleur-bg);
+}
+
+.intel-one-mono {
+  font-family: "Intel One Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+h1{
+    font-size: 6vw;
+    text-align: center;
+}
+
+
+/* ------------------*/
+/* Styles généraux */
+/* ------------------*/
+
+header ul{
+    display: flex;
+    align-items: center;
+    gap: 3vw;
+}
+
+nav, footer {
+    background-color: var(--couleur-secondaire);
+    padding: 3vw;
+        color: white;
+
+}
+
+.btn_style{
+    text-decoration: none;
+    color: white;
+
+}
+
+
+
+
+.container {
+    width: 100%;
+    max-width: 80vw;
+    margin-inline: auto;
+    margin-block:4vh;
+    padding: 1rem;
+}
+
+
+
+
