@@ -43,9 +43,9 @@ footer div {
 
 nav, footer {
     background-color: var(--couleur-secondaire);
-    padding: 3vw;
+    padding: 2vw;
         color: white;
-        font-size: 1.5vw;
+        font-size: 1vw;
 
 }
 
@@ -61,8 +61,8 @@ nav, footer {
     margin-inline: auto;
     margin-block:4vh;
     padding: 1rem;
-}
 
+}
 
 
 .box{
@@ -70,13 +70,11 @@ nav, footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-font-size: 1vw;
-
-    
+    font-size: 1vw;
     background-color: var(--couleur-secondaire);
     padding: 1rem;
     border-radius:1rem ;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.37);
 }
 
 ul.ma-liste {
@@ -90,6 +88,7 @@ ul.ma-liste {
 
 
 .container img{
+    border-radius: 2rem;
     max-height: 40vh;
     width: 60vw;
     padding: 20px;
@@ -102,3 +101,17 @@ ul.ma-liste {
 /* Styles Formulaire */
 /* ---------------- */
 
+.container fieldset {
+    padding: 2vw;
+    border: 2px dotted var(--couleur-secondaire);
+    border-radius: 1rem;
+    
+}
+
+.container form {
+    display: flex;
+    justify-content: center;
+    
+    flex-direction: column;
+    gap: 1rem;
+}
