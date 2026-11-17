@@ -6,7 +6,14 @@
     <title>Jeu Memory</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css">
     <link rel="stylesheet" href="css/style.css" />
-    <script src="scripts/script.js"></script>
+
+<script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+      integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="scripts/script.js" defer></script>
 </head>
   <body class="intel-one-mono">
     <header>
@@ -25,21 +32,23 @@
     <main class="container">
         <section class="box">
             <h2>Plateau Légumes : 4 x 3</h2>
-            <div class="plateau">
-            <img src="ressources/memory-legume/1.svg" alt="">
-            <img src="ressources/memory-legume/1.svg" alt="">
-            <img src="ressources/memory-legume/1.svg" alt="">
-            <img src="ressources/memory-legume/1.svg" alt="">
-            <img src="ressources/memory-legume/1.svg" alt="">
-            <img src="ressources/memory-legume/1.svg" alt="">
-            <img src="ressources/memory-legume/1.svg" alt="">
-            <img src="ressources/memory-legume/1.svg" alt="">
-            <img src="ressources/memory-legume/1.svg" alt="">
-            <img src="ressources/memory-legume/1.svg" alt="">
-            <img src="ressources/memory-legume/1.svg" alt="">
-            <img src="ressources/memory-legume/1.svg" alt="">
+            <div class="plateau" id="plateau">
+            <img src="ressources/question.svg" alt="">
+            <img src="ressources/question.svg" alt="">
+            <img src="ressources/question.svg" alt="">
+            <img src="ressources/question.svg" alt="">
+            <img src="ressources/question.svg" alt="">
+            <img src="ressources/question.svg" alt="">
+            <img src="ressources/question.svg" alt="">
+            <img src="ressources/question.svg" alt="">
+            <img src="ressources/question.svg" alt="">
+            <img src="ressources/question.svg" alt="">
+            <img src="ressources/question.svg" alt="">
+            <img src="ressources/question.svg" alt="">
 
             </div>
+            <p>Nombres de coup joués : <span id="coup">0</span>.</p>
+            <button>Recommencer la partie ?</button>
 
         </section>
         

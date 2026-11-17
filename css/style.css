@@ -100,7 +100,7 @@ ul.ma-liste {
 
 .plateau {
     background-color: aliceblue;
-    margin-top: 1rem;
+    margin-block: 1rem;
     border-radius: 1rem;
     display: flex;
     flex-wrap: wrap;
@@ -112,9 +112,16 @@ ul.ma-liste {
 }
 
 .plateau img {
+    background-color: #FFFDB9;
     width:15vw;
+    height: 15vw;
     border: 1px solid var(--couleur-secondaire);
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.37);
+}
+
+.plateau img:hover{
+    scale: 1.05;
+    transition: ease-in 0.3s;
 }
 
 
