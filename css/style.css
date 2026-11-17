@@ -73,6 +73,7 @@ nav, footer {
     font-size: 1vw;
     background-color: var(--couleur-secondaire);
     padding: 1rem;
+    gap: 1rem;
     border-radius:1rem ;
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.37);
 }
@@ -88,10 +89,10 @@ ul.ma-liste {
 
 
 .container img{
-    border-radius: 2rem;
+    border-radius: 10px;
     max-height: 40vh;
     width: 60vw;
-    padding: 20px;
+    /* padding: 20px; */
 }
 
 /* ---------------- */
@@ -100,7 +101,6 @@ ul.ma-liste {
 
 .plateau {
     background-color: aliceblue;
-    margin-block: 1rem;
     border-radius: 1rem;
     display: flex;
     flex-wrap: wrap;
@@ -115,6 +115,7 @@ ul.ma-liste {
     background-color: #FFFDB9;
     width:15vw;
     height: 15vw;
+    padding: 1vw;
     border: 1px solid var(--couleur-secondaire);
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.37);
 }
