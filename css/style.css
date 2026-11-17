@@ -13,7 +13,7 @@ body{
 .intel-one-mono {
   font-family: "Intel One Mono", monospace;
   font-optical-sizing: auto;
-  font-weight: 300;
+  
   font-style: normal;
 }
 
@@ -94,6 +94,28 @@ ul.ma-liste {
     padding: 20px;
 }
 
+/* ---------------- */
+/* Styles Jeu */
+/* ---------------- */
+
+.plateau {
+    background-color: aliceblue;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+    
+}
+
+.plateau img {
+    width:15vw;
+    border: 1px solid var(--couleur-secondaire);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.37);
+}
 
 
 
