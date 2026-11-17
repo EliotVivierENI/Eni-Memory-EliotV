@@ -8,13 +8,22 @@ function init() {
     // Fonction pour réinitialiser le plateau et le nombre de coup quand "spacebar" est appuyé
     window.addEventListener("keyup", (e) => {
         if (e.key == " " || e.code == "Space") {
-            compteur = 0;
-            $("#coup").text(compteur);
-            $("#plateau").find("img").attr("src", "ressources/question.svg");
-            placerCartes();
+            resetJeu()
         } else {
         }
     });
+
+    $("#btn-reset").on("click",resetJeu)
+
+
+}
+
+function resetJeu(){
+    compteur = 0;
+            $("#coup").text(compteur);
+            $("#plateau").find("img").attr("src", "ressources/question.svg");
+            $("#plateau").find("img").removeClass("bg-reussite");
+            placerCartes();
 }
 
 //Variables 
@@ -78,6 +87,8 @@ function verif() {
         compteur++
     $("#coup").text(compteur);
         if (cartesRetournees[0].attr("data-value") === cartesRetournees[1].attr("data-value")) {
+            cartesRetournees[0].addClass("bg-reussite");
+            cartesRetournees[1].addClass("bg-reussite");
             console.log("J'ai 2 cartes")
             resetCartes();
 
@@ -111,7 +122,7 @@ function victoire() {
         }
     }
     setTimeout(() => {
-        alert(`Le joueur remporte la partie en ${compteur} coups`);
+        alert(`Victoire ! \nLe joueur remporte la partie en ${compteur} coups ! \nAppuie sur barre espace pour relancer.`);
     }, 1000)
 
 }

@@ -1,6 +1,6 @@
 :root{
     --couleur-bg:#FFFDB9;
-    --couleur-secondaire:rgba(128, 128, 128, 0.418);
+    --couleur-secondaire:#8080806b;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Intel+One+Mono:ital,wght@0,300..700;1,300..700&display=swap');
@@ -100,7 +100,9 @@ ul.ma-liste {
 /* ---------------- */
 
 .plateau {
-    background-color: aliceblue;
+  background: #FFFDB9;
+    background: linear-gradient(162deg, rgba(255, 253, 185, 1) 0%, rgba(128, 128, 128, 1) 75%);
+    max-height: 70vh;
     border-radius: 1rem;
     display: flex;
     flex-wrap: wrap;
@@ -112,20 +114,41 @@ ul.ma-liste {
 }
 
 .plateau img {
-    background-color: #FFFDB9;
+    background-color: var(--couleur-bg);
     width:15vw;
-    height: 15vw;
+    height: 15vh;
+   
     padding: 1vw;
-    border: 1px solid var(--couleur-secondaire);
+    border: 2px solid yellow;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.37);
 }
 
 .plateau img:hover{
-    scale: 1.05;
+    border: 2px solid blue ;
+     scale: 1.05;
     transition: ease-in 0.3s;
 }
 
+.bg-reussite {
+    background-color: rgb(1, 255, 1) !important; 
+    border: 2px solid white !important;
+}
 
+
+#btn-reset{
+    padding:0.5rem 1rem 0.5rem 1rem ;
+    border-radius: 0.5rem;
+    border: none;
+    color: white;
+    background-color: red;
+}
+#btn-reset:hover{
+    scale: 1.05;
+    transition: ease-in 0.3s;
+    border: white;
+    color: black;
+    background-color:rgba(208, 255, 0, 0.877) ;
+}
 
 /* ---------------- */
 /* Styles Formulaire */
