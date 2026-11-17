@@ -128,3 +128,25 @@ function victoire() {
 }
 
 
+
+/*
+Demain : 
+
+Effet retournement de la carte (rotate3D ?)
+Factoriser le code
+
+
+
+
+- Rendre opérationnel Inscription
+- Vérification des mdps
+
+A faire avant Vendredi:
+Page Profil
+Refaire Nav
+Recoder CSS avec Boostrap ?
+Le rendre dynamique avec les autres tableaux
+
+Idée Bonus : 
+Mode Sombre/Clair ( refaire chaque code couleur avec variable)
+*/ 
