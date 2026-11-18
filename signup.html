@@ -4,11 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inscription Memory</title>
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+      integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="scripts/script_forms.js" defer></script>
   </head>
   <body class="intel-one-mono">
     <header>
@@ -27,9 +35,10 @@
     <main class="container">
       <fieldset>
         <legend>Inscription :</legend>
-        <form action="post">
+        <form action="post" id="monForm">
           <label for="nom">Identifiant : </label>
-          <input type="text" name="nom" id="nom" placeholder="John49487" title="Saisissez votre Identifiant"/>
+          <input type="text" name="nom" id="nom" placeholder="John49487" title="Saisissez votre Identifiant" required/>
+          <p id="vert">C'est validé !</p>
 
           <label for="email">Email : </label>
           <input
@@ -38,16 +47,22 @@
             name="email"
             placeholder="john.doe@mail.com"
             title="Saisissez votre adresse email"
+            required
           />
+          <p id="resultat"></p>
+          
         <label for="motdePasse">Mot de passe :</label>
         <input
-          type="password"
+          type="text"
           id="motdePasse"
           name="motdePasse"
           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
           title="Saisissez votre mot de passe de minimum 8 caractères comportant
           des lettres minuscules et majuscules et des chiffres"
+          required
         />
+       
+
         <label for="motdePasse">Confirmer mot de passe :</label>
         <input
           type="password"
@@ -56,8 +71,9 @@
           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
           title="Saisissez votre mot de passe de minimum 8 caractères comportant
           des lettres minuscules et majuscules et des chiffres"
+          required
         />
-        <input type="submit">
+        <input type="submit" disabled id="envoyer">
 
 
         </form>

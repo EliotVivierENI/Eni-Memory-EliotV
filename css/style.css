@@ -1,6 +1,7 @@
 :root{
     --couleur-bg:#FFFDB9;
     --couleur-secondaire:#8080806b;
+    --taille:16px;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Intel+One+Mono:ital,wght@0,300..700;1,300..700&display=swap');
@@ -15,6 +16,7 @@ body{
   font-optical-sizing: auto;
   
   font-style: normal;
+  
 }
 
 h1{
@@ -49,11 +51,19 @@ nav, footer {
 
 }
 
+h2,p {
+    font-size: 1vw;
+}
+
 .btn_style{
     text-decoration: none;
     color: white;
 
 }
+
+/* ------------------*/
+/* Styles main */
+/* ------------------*/
 
 .container {
     width: 100%;
@@ -171,5 +181,18 @@ ul.ma-liste {
     justify-content: center;
     
     flex-direction: column;
-    gap: 1rem;
+    
+}
+
+.container input {
+    margin-top: 5px;
+    padding: 0.3rem;
+    border-radius: 5px
+    ;
+    border: 1px dotted var(--couleur-secondaire);
+    margin-bottom: 2vh;
+}
+
+.container input:hover{
+    border: 1px solid var(--couleur-secondaire);
 }

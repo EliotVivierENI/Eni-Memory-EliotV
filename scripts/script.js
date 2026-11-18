@@ -92,7 +92,7 @@ function verif() {
             for(let i=0;i<cartesRetournees.length;i++){
             cartesRetournees[i].addClass("bg-reussite");
             cartesRetournees[i].toggleClass("retourne")
-            cartesRetournees[i].css("pointer-events","none")
+            
             }
             
             
