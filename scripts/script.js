@@ -23,6 +23,7 @@ function resetJeu(){
             $("#coup").text(compteur);
             $("#plateau").find("img").attr("src", "ressources/question.svg");
             $("#plateau").find("img").removeClass("bg-reussite");
+            $("#plateau").find("img").removeClass("retourne");
             placerCartes();
 }
 
@@ -65,7 +66,7 @@ function placerCartes() {
 //Affiche la carte après un clic
 function retournerImg() {
 
-
+    $(this).toggleClass("retourne")
 
     $(this)
         .attr("src", plateauLegumes[$(this).attr("data-value") - 1]);
@@ -87,9 +88,12 @@ function verif() {
         compteur++
     $("#coup").text(compteur);
         if (cartesRetournees[0].attr("data-value") === cartesRetournees[1].attr("data-value")) {
-            cartesRetournees[0].addClass("bg-reussite");
-            cartesRetournees[1].addClass("bg-reussite");
-            console.log("J'ai 2 cartes")
+            for(let i=0;i<cartesRetournees.length;i++){
+            cartesRetournees[i].addClass("bg-reussite");
+            cartesRetournees[i].toggleClass("retourne")
+            }
+            
+            
             resetCartes();
 
         }
@@ -97,11 +101,14 @@ function verif() {
     else {
         console.log("j'ai une carte")
         setTimeout(() => {
-            cartesRetournees[0].attr("src", "ressources/question.svg");
-            cartesRetournees[1].attr("src", "ressources/question.svg");
+             for(let i=0;i<cartesRetournees.length;i++){
+            cartesRetournees[i].attr("src", "ressources/question.svg");
+            cartesRetournees[i].toggleClass("retourne")
+            }
+
             resetCartes();
 
-        }, 1000)
+        }, 1200)
     }
     }
     else {
@@ -131,8 +138,8 @@ function victoire() {
 
 /*
 Demain : 
+Bloquer le clic
 
-Effet retournement de la carte (rotate3D ?)
 Factoriser le code
 
 

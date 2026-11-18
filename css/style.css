@@ -134,6 +134,10 @@ ul.ma-liste {
     border: 2px solid white !important;
 }
 
+.retourne{
+    transform: rotateY(180deg);
+    
+}
 
 #btn-reset{
     padding:0.5rem 1rem 0.5rem 1rem ;
