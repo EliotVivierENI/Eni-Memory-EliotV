@@ -15,7 +15,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script src="scripts/script_forms.js" defer></script>
+    <script src="scripts/connexion.js" defer></script>
   </head>
   <body class="intel-one-mono">
     <header>
@@ -34,7 +34,7 @@
     <main class="container">
       <fieldset>
         <legend>Inscription :</legend>
-        <form action="post">
+        <form action="post" id="formLog">
           <label for="nomLog">Identifiant : </label>
           <input type="text" name="nomLog" id="nomLog" placeholder="John49487" title="Saisissez votre Identifiant"/>
         <label for="motdePasseLog">Mot de passe :</label>
@@ -46,6 +46,7 @@
           title="Saisissez votre mot de passe de minimum 8 caractères comportant
           des lettres minuscules et majuscules et des chiffres"
         />
+        <p id="message"></p>
       
         <input type="submit">
 
