@@ -196,3 +196,21 @@ ul.ma-liste {
 .container input:hover{
     border: 1px solid var(--couleur-secondaire);
 }
+
+.flex-force {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4vw;
+}
+
+.box-force {
+    /* background-color: red; */
+    padding: 0.1rem 3rem 0.1rem 3rem;
+     border-radius: 10px;
+}
+
+.flex-force p {
+    text-align: center;
+   
+}

@@ -4,6 +4,7 @@ function init() {
   $("#nom").on("input", verifNom);
   $("#email").on("input", verifMail);
   $("#monForm").on("input", verifMDPS);
+  $("#motdePasse").on("input",forceMdp)
 }
 
 function verifNom() {
@@ -27,6 +28,29 @@ function verifMail() {
     }
   });
 }
+
+
+function forceMdp(){
+    const mdp = document.getElementById("motdePasse").value;
+
+    const contientChiffre = /[0-9]/.test(mdp);
+    const regexSymbole = /[\p{P}\p{S}]/u.test(mdp);
+
+    if(mdp.length < 6){
+        $("#faible").css("background-color","red")
+    }
+    if(mdp.length>=6 && (contientChiffre || regexSymbole )){
+          
+         $("#moyen").css("background-color","yellow")
+    }
+     if(mdp.length>=9 && contientChiffre && regexSymbole ){
+          
+         $("#fort").css("background-color","green")
+    }
+
+
+}
+
 
 function verifMDPS() {
   const formulaire = document.getElementById("monForm");
