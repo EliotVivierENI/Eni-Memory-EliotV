@@ -24,6 +24,7 @@ function resetJeu(){
             $("#plateau").find("img").attr("src", "ressources/question.svg");
             $("#plateau").find("img").removeClass("bg-reussite");
             $("#plateau").find("img").removeClass("retourne");
+            $("#plateau").find("img").css("pointer-events","auto");
             placerCartes();
 }
 
@@ -71,7 +72,7 @@ function retournerImg() {
     $(this)
         .attr("src", plateauLegumes[$(this).attr("data-value") - 1]);
 
-
+    $(this).css("pointer-events","none");
     
 
 
@@ -91,6 +92,7 @@ function verif() {
             for(let i=0;i<cartesRetournees.length;i++){
             cartesRetournees[i].addClass("bg-reussite");
             cartesRetournees[i].toggleClass("retourne")
+            cartesRetournees[i].css("pointer-events","none")
             }
             
             
@@ -104,6 +106,8 @@ function verif() {
              for(let i=0;i<cartesRetournees.length;i++){
             cartesRetournees[i].attr("src", "ressources/question.svg");
             cartesRetournees[i].toggleClass("retourne")
+            cartesRetournees[i].css("pointer-events","auto");
+
             }
 
             resetCartes();
@@ -138,12 +142,6 @@ function victoire() {
 
 /*
 Demain : 
-Bloquer le clic
-
-Factoriser le code
-
-
-
 
 - Rendre opérationnel Inscription
 - Vérification des mdps

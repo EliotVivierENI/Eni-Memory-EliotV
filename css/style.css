@@ -137,6 +137,7 @@ ul.ma-liste {
 .retourne{
     transform: rotateY(180deg);
     
+    
 }
 
 #btn-reset{
@@ -144,7 +145,7 @@ ul.ma-liste {
     border-radius: 0.5rem;
     border: none;
     color: white;
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.493);
 }
 #btn-reset:hover{
     scale: 1.05;
