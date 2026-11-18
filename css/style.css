@@ -224,3 +224,36 @@ ul.ma-liste {
     padding-top: 1vh;
    
 }
+
+
+
+/* ---------------- */
+/* Styles Profil */
+/* ---------------- */
+
+/* #generationProfil2 div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+   
+}
+
+#generationProfil2 p {
+    width: 30%;
+}  */
+#generationProfil div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    
+}
+
+#generationProfil p {
+    width: 30%;
+}
+
+
+.test {
+text-align: right;
+margin-right: 1rem;
+}

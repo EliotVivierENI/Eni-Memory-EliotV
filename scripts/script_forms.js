@@ -110,6 +110,7 @@ function storeData(event) {
     event.preventDefault(); 
     const donnees = Object.fromEntries(new FormData(monForm));
     localStorage.setItem(CLE_STOCKAGE, JSON.stringify(donnees));
+    window.location.href = "log.html";
 }
 
 

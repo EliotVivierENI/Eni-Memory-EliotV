@@ -35,6 +35,9 @@ function verifierConnexion(event) {
     if (saisie.name === utilisateur.name && saisie.motDePasse === utilisateur.motDePasse) {
         message.textContent = "Connexion réussie !";
         sessionStorage.setItem("estConnecte", "true");
+        setTimeout(()=>{
+window.location.href = "profil.html";
+        },1000)
     } else {
         message.textContent = "Email ou mot de passe incorrect.";
     }
