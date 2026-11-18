@@ -183,8 +183,12 @@ ul.ma-liste {
     flex-direction: column;
     
 }
+.container label,.container input , .container legend{
+    font-size: 1vw;
+}
 
 .container input {
+
     margin-top: 5px;
     padding: 0.3rem;
     border-radius: 5px
@@ -196,21 +200,26 @@ ul.ma-liste {
 .container input:hover{
     border: 1px solid var(--couleur-secondaire);
 }
+.container input:focus{
+    border: 1px solid var(--couleur-secondaire);
+    outline: none;
+}
 
 .flex-force {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 4vw;
+    padding: 1vh;
 }
 
 .box-force {
-    /* background-color: red; */
-    padding: 0.1rem 3rem 0.1rem 3rem;
-     border-radius: 10px;
+   border: 1px solid var(--couleur-secondaire);
+    padding: 0.2rem 3rem 0.2rem 3rem;
+  
 }
 
 .flex-force p {
     text-align: center;
+    padding-top: 1vh;
    
 }

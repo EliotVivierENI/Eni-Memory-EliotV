@@ -36,16 +36,26 @@ function forceMdp(){
     const contientChiffre = /[0-9]/.test(mdp);
     const regexSymbole = /[\p{P}\p{S}]/u.test(mdp);
 
-    if(mdp.length < 6){
+    if( mdp.length >0){
         $("#faible").css("background-color","red")
+        
+    }
+    else{
+         $("#faible").css("background-color","rgba(0, 0, 0, 0)")
     }
     if(mdp.length>=6 && (contientChiffre || regexSymbole )){
-          
+          $("#faible").css("background-color","red")
          $("#moyen").css("background-color","yellow")
+    } else {
+          $("#moyen").css("background-color","rgba(0, 0, 0, 0)")
     }
      if(mdp.length>=9 && contientChiffre && regexSymbole ){
-          
+           $("#faible").css("background-color","red")
+         $("#moyen").css("background-color","yellow")
          $("#fort").css("background-color","green")
+    }
+    else {
+         $("#fort").css("background-color","rgba(0, 0, 0, 0)")
     }
 
 
@@ -63,7 +73,7 @@ function verifMDPS() {
   const champsValides = formulaire.checkValidity();
   const mdpIdentiques = mdp.value === verifMdp.value;
 
-  btnValider.disabled = (champsValides && mdpIdentiques) ? false : true;
+  btnValider.disabled = (champsValides && mdpIdentiques ) ? false : true;
 });
 }
 
