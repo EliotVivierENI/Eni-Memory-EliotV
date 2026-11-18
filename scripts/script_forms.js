@@ -1,33 +1,50 @@
 window.onload = init();
 
 function init() {
-  $("#nom").on("input", verifNom);
-  $("#email").on("input", verifMail);
+//   $("#nom").on("input", verifNom);
+//   $("#email").on("input", verifMail);
   $("#monForm").on("input", verifMDPS);
   $("#motdePasse").on("input",forceMdp)
+  
+  document.getElementById("monForm").addEventListener("submit", storeData);
 }
 
-function verifNom() {
-  const monNom = document.getElementById("nom").value;
-  if (monNom.length > 2) {
-    $("#vert").css("color", "blue");
-  }
-}
 
-function verifMail() {
-  const emailInput = document.getElementById("email");
-  const resultat = document.getElementById("resultat");
 
-  emailInput.addEventListener("input", () => {
-    if (emailInput.checkValidity()) {
-      resultat.textContent = "Format d'e-mail valide ";
-      resultat.style.color = "green";
-    } else {
-      resultat.textContent = "Format invalide ";
-      resultat.style.color = "red";
-    }
-  });
-}
+
+
+
+/* --------------------------------
+------------------------------------
+-----Fonctions verifications -------
+-----du formulaire Inscription------
+------------------------------------
+----------------------------------*/
+
+
+
+
+// function verifNom() {
+//   const monNom = document.getElementById("nom").value;
+//   if (monNom.length > 2) {
+//     $("#vert").css("color", "blue");
+//   }
+// }
+
+// function verifMail() {
+//   const emailInput = document.getElementById("email");
+//   const resultat = document.getElementById("resultat");
+
+//   emailInput.addEventListener("input", () => {
+//     if (emailInput.checkValidity()) {
+//       resultat.textContent = "Format d'e-mail valide ";
+//       resultat.style.color = "green";
+//     } else {
+//       resultat.textContent = "Format invalide ";
+//       resultat.style.color = "red";
+//     }
+//   });
+// }
 
 
 function forceMdp(){
@@ -52,7 +69,7 @@ function forceMdp(){
      if(mdp.length>=9 && contientChiffre && regexSymbole ){
            $("#faible").css("background-color","red")
          $("#moyen").css("background-color","yellow")
-         $("#fort").css("background-color","green")
+         $("#fort").css("background-color","var(--couleur-reussite")
     }
     else {
          $("#fort").css("background-color","rgba(0, 0, 0, 0)")
@@ -60,7 +77,6 @@ function forceMdp(){
 
 
 }
-
 
 function verifMDPS() {
   const formulaire = document.getElementById("monForm");
@@ -77,34 +93,27 @@ function verifMDPS() {
 });
 }
 
-// const appelTableau = function () {
-//     btnOk= document.getElementById("envoyer")
-// pass= document.getElementById("motdePasse")
-//   valeur = pass.value;
-//   const contientMinuscule = /[a-z]/.test(valeur);
-//   const contientMajuscule = /[A-Z]/.test(valeur);
-//   const contientChiffre = /[0-9]/.test(valeur);
 
-//   document.getElementById("minuscule").style.color = contientMinuscule
-//     ? "green"
-//     : "red";
-//   document.getElementById("majuscule").style.color = contientMajuscule
-//     ? "green"
-//     : "red";
-//   document.getElementById("chiffre").style.color = contientChiffre
-//     ? "green"
-//     : "red";
-//   documenttElementById("nbCaracteres").style.color =
-//     valeur.length >= 8 ? "green" : "red";
+/* --------------------------------
+------------------------------------
+-----Fonctions modifications -------
+-----du Local Storage---------------
+------------------------------------
+----------------------------------*/
 
-//   if (
-//     contientMinuscule &&
-//     contientMajuscule &&
-//     contientChiffre &&
-//     valeur.length >= 8
-//   ) {
-//     btnOk.removeAttribute("disabled");
-//   } else {
-//     btnOk.setAttribute("disabled", "disabled");
-//   }
-// };
+
+
+const monForm = document.getElementById("monForm");
+const CLE_STOCKAGE = "mes_donnees";
+
+function storeData(event) {
+    event.preventDefault(); 
+    const donnees = Object.fromEntries(new FormData(monForm));
+    localStorage.setItem(CLE_STOCKAGE, JSON.stringify(donnees));
+}
+
+
+
+
+
+

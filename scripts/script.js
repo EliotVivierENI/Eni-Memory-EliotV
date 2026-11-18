@@ -9,8 +9,7 @@ function init() {
     window.addEventListener("keyup", (e) => {
         if (e.key == " " || e.code == "Space") {
             resetJeu()
-        } else {
-        }
+        } else {}
     });
 
     $("#btn-reset").on("click",resetJeu)

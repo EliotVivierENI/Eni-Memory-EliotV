@@ -9,6 +9,13 @@
       href="https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+      integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="scripts/script_forms.js" defer></script>
   </head>
   <body class="intel-one-mono">
     <header>
@@ -28,13 +35,13 @@
       <fieldset>
         <legend>Inscription :</legend>
         <form action="post">
-          <label for="nom">Identifiant : </label>
-          <input type="text" name="nom" id="nom" placeholder="John49487" title="Saisissez votre Identifiant"/>
-        <label for="motdePasse">Mot de passe :</label>
+          <label for="nomLog">Identifiant : </label>
+          <input type="text" name="nomLog" id="nomLog" placeholder="John49487" title="Saisissez votre Identifiant"/>
+        <label for="motdePasseLog">Mot de passe :</label>
         <input
           type="password"
-          id="motdePasse"
-          name="motdePasse"
+          id="motdePasseLog"
+          name="motdePasseLog"
           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
           title="Saisissez votre mot de passe de minimum 8 caractères comportant
           des lettres minuscules et majuscules et des chiffres"

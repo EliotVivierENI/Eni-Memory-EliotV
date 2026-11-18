@@ -1,7 +1,8 @@
 :root{
     --couleur-bg:#FFFDB9;
     --couleur-secondaire:#8080806b;
-    --taille:16px;
+    --couleur-reussite:rgb(1, 255, 1) ;
+    
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Intel+One+Mono:ital,wght@0,300..700;1,300..700&display=swap');
@@ -140,7 +141,7 @@ ul.ma-liste {
 }
 
 .bg-reussite {
-    background-color: rgb(1, 255, 1) !important; 
+    background-color: var(--couleur-reussite) !important; 
     border: 2px solid white !important;
 }
 
@@ -214,7 +215,7 @@ ul.ma-liste {
 
 .box-force {
    border: 1px solid var(--couleur-secondaire);
-    padding: 0.2rem 3rem 0.2rem 3rem;
+    padding: 0.5vh 10vw 0.5vh 10vw;
   
 }
 
