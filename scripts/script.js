@@ -38,14 +38,31 @@ function resetJeu(){
 //Variables 
 let cartesRetournees = []
 let compteur = 0;
-let plateauLegumes = [
-    "ressources/memory-legume/1.svg",
-    "ressources/memory-legume/2.svg",
-    "ressources/memory-legume/3.svg",
-    "ressources/memory-legume/4.svg",
-    "ressources/memory-legume/5.svg",
-    "ressources/memory-legume/6.svg",
-];
+
+
+// --------------------------
+// Mes tableaux d'images ----
+// --------------------------
+const plateauLegumes = Array.from({ length: 6 }, (_, i) => `ressources/memory-legume/${i + 1}.svg`);
+
+const animaux = Array.from({ length: 28 }, (_, i) => `ressources/animaux/${i + 1}.webp`);
+
+const dinosaures = Array.from({ length: 10 }, (_, i) => `ressources/dinosaures/${i + 1}.jpg`);
+
+const dinosauresNoms = Array.from({ length: 10 }, (_, i) => `ressources/dinosaureAvecNom/${i + 1}.jpg`);
+
+const chiens = Array.from({ length: 23 }, (_, i) => `ressources/chiens/${i + 1}.webp`);
+
+const alphabet = Array.from({ length: 26 }, (_, i) => `ressources/alphabet-scrabble/${i + 1}.png`);
+
+const animauxAnimes = Array.from({ length: 8 }, (_, i) => `ressources/animauxAnimes/${i + 1}.webp`);
+
+const animauxDom = Array.from({ length: 10 }, (_, i) => `ressources/animauxdomestiques/${i + 1}.jpg`);
+
+
+
+
+
 
 let indexLegumes = [1, 2, 3, 4, 5, 6]
 let pairesIndexLegumes = [...indexLegumes, ...indexLegumes];
@@ -150,10 +167,14 @@ function victoire() {
 /*
 
 
-2 Banque Image = Choix thème 
+- Utilisateur entre un nombre de carte
+
+- Définir tout mes tableaux d'images
+- MonTableau = TableauxImagesCoché + TableauxImagesCoché2 + TableauxImagesCoché3 etc
+- shuffle(MonTableau)
 
 
-/!\ Mais choix thème dépend taille du plateau
+- Math.floor(Math.random(MonTableau)* nbCartes)
 
 
 
