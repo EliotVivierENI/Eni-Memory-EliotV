@@ -1,7 +1,7 @@
 window.onload = init;
 
 function init() {
-
+generationPlateau(12);
     placerCartes();
     $("#plateau img").on("click", retournerImg);
 
@@ -14,6 +14,7 @@ function init() {
 
     $("#btn-reset").on("click",resetJeu)
 
+    
 
 }
 
@@ -142,8 +143,8 @@ function victoire() {
 /*
 Demain : 
 
-- Rendre opérationnel Inscription
-- Vérification des mdps
+
+
 
 A faire avant Vendredi:
 Page Profil
@@ -154,3 +155,28 @@ Le rendre dynamique avec les autres tableaux
 Idée Bonus : 
 Mode Sombre/Clair ( refaire chaque code couleur avec variable)
 */ 
+
+
+function generationPlateau(longueur) {
+  
+  const $box = $('<section>', { class: 'box' }).html(`
+    <h2>Plateau Légumes : 4 x 3</h2>
+    <div class="plateau" id="plateau"></div>
+    <p>Nombres de coup joués : <span id="coup">0</span>.</p>
+    <button id="btn-reset">Recommencer la partie</button>
+  `);
+
+  for (let i = 0; i < longueur; i++) {
+    $box.find('#plateau').append(
+      $('<img>', {
+        src: 'ressources/question.svg',
+        alt: '',
+        id: 'img_' + i
+      })
+    );
+  }
+
+  $('#monPlateau').empty().append($box);
+}
+
+

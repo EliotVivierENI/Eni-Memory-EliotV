@@ -113,7 +113,7 @@ ul.ma-liste {
 .plateau {
   background: #FFFDB9;
     background: linear-gradient(162deg, rgba(255, 253, 185, 1) 0%, rgba(128, 128, 128, 1) 75%);
-    max-height: 70vh;
+    max-height: 80%;
     border-radius: 1rem;
     display: flex;
     flex-wrap: wrap;
@@ -126,8 +126,8 @@ ul.ma-liste {
 
 .plateau img {
     background-color: var(--couleur-bg);
-    width:15vw;
-    height: 15vh;
+    width:12vw;
+    /* height: 15vh; */
    
     padding: 1vw;
     border: 2px solid yellow;
