@@ -1,12 +1,14 @@
-//Variables
+//--------------------------
+// Variables générales -----
+//--------------------------
 let cartesRetournees = [];
 let compteur = 0;
 let nbCartes = 12;
 let verrouillage = false;
-
-// --------------------------
-// Mes tableaux d'images ----
-// --------------------------
+let plateauActif = [];
+// -----------------------
+//  Tableaux d'images ----
+// -----------------------
 
 const legumes = Array.from(
   { length: 6 },
@@ -48,18 +50,18 @@ const animaux = Array.from(
   (_, i) => `ressources/animaux/${i + 1}.webp`,
 );
 
-
 const themes = {
-    legumes:legumes,
-    animauxAnimes:animauxAnimes,
-    animauxDoms:animauxDoms,
-    dinosaures:dinosaures,
-    dinosauresNoms:dinosauresNoms,
-    chiens:chiens,
-    alphabet:alphabet,
-    animaux:animaux
-}
-let plateauActif = [];
+  legumes: legumes,
+  animauxAnimes: animauxAnimes,
+  animauxDoms: animauxDoms,
+  dinosaures: dinosaures,
+  dinosauresNoms: dinosauresNoms,
+  chiens: chiens,
+  alphabet: alphabet,
+  animaux: animaux,
+};
+
+//Fonction d'initialisation
 
 window.onload = init;
 
@@ -67,30 +69,23 @@ function init() {
   $("#formPlateau").on("submit", function (event) {
     event.preventDefault();
 
-    nbCartes = parseInt($("#nombre").val())*2;
+    nbCartes = parseInt($("#nombre").val()) * 2;
 
+    plateauActif = [];
+    $('input[type="checkbox"]:checked').each(function () {
+      const nomTheme = $(this).val();
 
-plateauActif = [];
-$('input[type="checkbox"]:checked').each(function() {
- 
-  const nomTheme = $(this).val();
+      const tableauDuTheme = themes[nomTheme];
 
-  
-  const tableauDuTheme = themes[nomTheme];
+      plateauActif.push(...tableauDuTheme);
+    });
 
- 
-  plateauActif.push(...tableauDuTheme);
-});
+    if (plateauActif.length * 2 < nbCartes) {
+      alert("Erreur, Total de cartes insuffisant");
+      return;
+    }
 
-
-if(plateauActif.length*2<nbCartes){
-    alert("Erreur, Total de cartes insuffisant")
-    return
-}
-
-
-
-placerCartes();
+    placerCartes();
   });
 
   $("#monPlateau").on("click", "#plateau img", retournerImg);
@@ -103,7 +98,9 @@ placerCartes();
     }
   });
 }
-
+//-------------------------------------------------
+// Fonction qui réinitialise le plateau de jeu ----
+//-------------------------------------------------
 
 function resetJeu() {
   compteur = 0;
@@ -115,13 +112,9 @@ function resetJeu() {
   placerCartes();
 }
 
-
-
-
-
-
-
-
+//----------------------------------------------------------
+// Fonction générique permettant de mélanger un tableau ----
+//----------------------------------------------------------
 
 function melanger(monTab) {
   for (let i = monTab.length - 1; i > 0; i--) {
@@ -130,11 +123,36 @@ function melanger(monTab) {
   }
 }
 
-//Assigne une sous valeur entre 1 et 6 compris à chaque image
-function placerCartes() {
+//------------------------------------------------------------------------------------------------------------------
+// Fonction qui genere le plateau de jeu en fonction du nombre de cartes selectionnees par l'utilisateur -----------
+//------------------------------------------------------------------------------------------------------------------
 
-melanger(plateauActif)
-generationPlateau(nbCartes);
+function generationPlateau(nbCartes) {
+  $("#monPlateau").addClass("box").html(`
+      <h2>Plateau : <span id="cartes">${nbCartes}</span> cartes</h2>
+      <div class="plateau" id="plateau"></div>
+      <p>Nombres de coup joués : <span id="coup">0</span>.</p>
+      <button id="btn-reset">Recommencer la partie</button>
+    `);
+
+  for (let i = 0; i < nbCartes; i++) {
+    $("#plateau").append(
+      $("<img>", {
+        src: "ressources/question.svg",
+        alt: "",
+        id: "img_" + i,
+      }),
+    );
+  }
+}
+
+//-------------------------------------------------------------------------------------------------------------------------
+// Fonction qui attribue une sous-valeur comprise entre 1 et le nombre de cartes selectionnees par l'utilisateur ----------
+//-------------------------------------------------------------------------------------------------------------------------
+
+function placerCartes() {
+  melanger(plateauActif);
+  generationPlateau(nbCartes);
 
   const index = Array.from({ length: nbCartes / 2 }, (_, i) => i + 1);
 
@@ -146,15 +164,17 @@ generationPlateau(nbCartes);
   }
 }
 
-//Affiche la carte après un clic
-function retournerImg() {
+//---------------------------------------------------------------------
+//Fonction qui retourne visuellement la carte en cliquant dessus ------
+//---------------------------------------------------------------------
 
-    if(verrouillage){
-        return
-    }
+function retournerImg() {
+  if (verrouillage) {
+    return;
+  }
 
   $(this).toggleClass("retourne");
-console.log(plateauActif)
+  console.log(plateauActif);
   $(this).attr("src", plateauActif[$(this).attr("data-value") - 1]);
 
   $(this).css("pointer-events", "none");
@@ -166,6 +186,10 @@ console.log(plateauActif)
   victoire();
 }
 
+//-----------------------------------------------------------------------------------------------------------
+//Fonction de verification, Si 2 cartes identiques => devient vert, sinon retourne & remet question.svg------
+//-----------------------------------------------------------------------------------------------------------
+
 function verif() {
   if (cartesRetournees.length == 2) {
     compteur++;
@@ -174,13 +198,12 @@ function verif() {
     if (
       cartesRetournees[0].attr("data-value") ===
       cartesRetournees[1].attr("data-value")
-      
     ) {
       for (let i = 0; i < cartesRetournees.length; i++) {
         cartesRetournees[i].addClass("bg-reussite");
         cartesRetournees[i].toggleClass("retourne");
-    }
-    verrouillage = false;
+      }
+      verrouillage = false;
 
       resetCartes();
     } else {
@@ -189,7 +212,6 @@ function verif() {
           cartesRetournees[i].attr("src", "ressources/question.svg");
           cartesRetournees[i].toggleClass("retourne");
           cartesRetournees[i].css("pointer-events", "auto");
-          
         }
         verrouillage = false;
         resetCartes();
@@ -199,9 +221,17 @@ function verif() {
   }
 }
 
+//--------------------------------------------------------------------------
+// Fonction simple qui reininitialise le tableau de cartes cliquees---------
+//--------------------------------------------------------------------------
+
 function resetCartes() {
   cartesRetournees = [];
 }
+
+//--------------------------------------------------------------------------
+// Fonction condition de victoire
+//--------------------------------------------------------------------------
 
 function victoire() {
   for (let i = 0; i < nbCartes; i++) {
@@ -214,59 +244,4 @@ function victoire() {
       `Victoire ! \nLe joueur remporte la partie en ${compteur} coups ! \nAppuie sur barre espace pour relancer.`,
     );
   }, 1000);
-}
-
-/*
-
-
-- Utilisateur entre un nombre de carte
-
-- Définir tout mes tableaux d'images
-- MonTableau = TableauxImagesCoché + TableauxImagesCoché2 + TableauxImagesCoché3 etc
-- shuffle(MonTableau)
-
-
-- Math.floor(Math.random(MonTableau)* nbCartes)
-
-
-
-
-
-
-Demain : 
-
-
-
-
-A faire avant Vendredi:
-Page Profil
-Refaire Nav
-Recoder CSS avec Boostrap ?
-Le rendre dynamique avec les autres tableaux
-
-Idée Bonus : 
-Mode Sombre/Clair ( refaire chaque code couleur avec variable)
-*/
-
-function generationPlateau(nbCartes) {
-  
-  $("#monPlateau")
-    .addClass("box")
-    .html(`
-      <h2>Plateau : <span id="cartes">${nbCartes}</span> cartes</h2>
-      <div class="plateau" id="plateau"></div>
-      <p>Nombres de coup joués : <span id="coup">0</span>.</p>
-      <button id="btn-reset">Recommencer la partie</button>
-    `);
-
-  
-  for (let i = 0; i < nbCartes; i++) {
-    $("#plateau").append(
-      $("<img>", {
-        src: "ressources/question.svg",
-        alt: "",
-        id: "img_" + i,
-      })
-    );
-  }
 }
