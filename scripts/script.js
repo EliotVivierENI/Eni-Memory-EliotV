@@ -67,7 +67,7 @@ function init() {
   $("#formPlateau").on("submit", function (event) {
     event.preventDefault();
 
-    nbCartes = parseInt($("#nombre").val());
+    nbCartes = parseInt($("#nombre").val())*2;
 
     
 

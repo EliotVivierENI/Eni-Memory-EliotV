@@ -52,6 +52,9 @@ nav{
         font-size: 1vw;
 
 }
+h2{
+    text-decoration: underline;
+}
 
 h2,p {
     font-size: 1vw;
@@ -103,8 +106,6 @@ ul.ma-liste {
 .container img{
     border-radius: 10px;
     max-height: 40vh;
-    /* width: 60vw; */
-    /* padding: 20px; */
 }
 /* ---------------- */
 /* ---------------- */
@@ -180,8 +181,8 @@ ul.ma-liste {
     border-radius: 1rem;
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: center; */
-    align-items: center;
+    justify-content: space-around;
+   
     padding: 1rem;
     gap: 1rem;
     
