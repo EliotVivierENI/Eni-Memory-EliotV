@@ -105,15 +105,25 @@ ul.ma-liste {
     width: 60vw;
     /* padding: 20px; */
 }
+/* ---------------- */
+/* ---------------- */
+/* Styles Form Jeu */
+/* ---------------- */
+/* ---------------- */
+
+
+
 
 /* ---------------- */
+/* ---------------- */
 /* Styles Jeu */
+/* ---------------- */
 /* ---------------- */
 
 .plateau {
   background: #FFFDB9;
     background: linear-gradient(162deg, rgba(255, 253, 185, 1) 0%, rgba(128, 128, 128, 1) 75%);
-    max-height: 80%;
+    max-height: 70%;
     border-radius: 1rem;
     display: flex;
     flex-wrap: wrap;
@@ -125,8 +135,11 @@ ul.ma-liste {
 }
 
 .plateau img {
+  box-sizing: border-box; 
+  flex: 0 0 calc(25% - 0.75rem); 
+
     background-color: var(--couleur-bg);
-    width:12vw;
+    width:10vw;
     /* height: 15vh; */
    
     padding: 1vw;
@@ -170,25 +183,25 @@ ul.ma-liste {
 /* Styles Formulaire */
 /* ---------------- */
 
-.container fieldset {
+.cible fieldset {
     padding: 2vw;
     border: 2px dotted var(--couleur-secondaire);
     border-radius: 1rem;
     
 }
 
-.container form {
+.cible form {
     display: flex;
     justify-content: center;
     
     flex-direction: column;
     
 }
-.container label,.container input , .container legend{
+.cible label,.cible input , .cible legend{
     font-size: 1vw;
 }
 
-.container input {
+.cible input {
 
     margin-top: 5px;
     padding: 0.3rem;
@@ -198,10 +211,10 @@ ul.ma-liste {
     margin-bottom: 2vh;
 }
 
-.container input:hover{
+.cibleinput:hover{
     border: 1px solid var(--couleur-secondaire);
 }
-.container input:focus{
+.cible input:focus{
     border: 1px solid var(--couleur-secondaire);
     outline: none;
 }

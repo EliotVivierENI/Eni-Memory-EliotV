@@ -1,21 +1,28 @@
 window.onload = init;
 
 function init() {
-generationPlateau(12);
-    placerCartes();
-    $("#plateau img").on("click", retournerImg);
 
-    // Fonction pour réinitialiser le plateau et le nombre de coup quand "spacebar" est appuyé
-    window.addEventListener("keyup", (e) => {
-        if (e.key == " " || e.code == "Space") {
-            resetJeu()
-        } else {}
-    });
 
-    $("#btn-reset").on("click",resetJeu)
+  $('#formPlateau').on('submit', function(event) {
+    event.preventDefault();
 
-    
+    const nbCartes = parseInt($('#nombre').val(), 10);
 
+    generationPlateau(nbCartes);
+    placerCartes(); 
+  });
+
+  $('#monPlateau').on('click', '#plateau img', retournerImg);
+
+ 
+  $('#monPlateau').on('click', '#btn-reset', resetJeu);
+
+  
+  $(window).on('keyup', function(e) {
+    if (e.key === ' ' || e.code === 'Space') {
+      resetJeu();
+    }
+  });
 }
 
 function resetJeu(){
@@ -141,6 +148,18 @@ function victoire() {
 
 
 /*
+
+
+2 Banque Image = Choix thème 
+
+
+/!\ Mais choix thème dépend taille du plateau
+
+
+
+
+
+
 Demain : 
 
 
@@ -157,7 +176,7 @@ Mode Sombre/Clair ( refaire chaque code couleur avec variable)
 */ 
 
 
-function generationPlateau(longueur) {
+function generationPlateau(nbCartes) {
   
   const $box = $('<section>', { class: 'box' }).html(`
     <h2>Plateau Légumes : 4 x 3</h2>
@@ -166,7 +185,7 @@ function generationPlateau(longueur) {
     <button id="btn-reset">Recommencer la partie</button>
   `);
 
-  for (let i = 0; i < longueur; i++) {
+  for (let i = 0; i < nbCartes; i++) {
     $box.find('#plateau').append(
       $('<img>', {
         src: 'ressources/question.svg',
