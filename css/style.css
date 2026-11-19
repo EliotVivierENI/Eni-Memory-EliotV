@@ -45,7 +45,7 @@ footer div {
     gap:5vw
 }
 
-nav, footer {
+nav{
     background-color: var(--couleur-secondaire);
     padding: 2vw;
         color: var(--blanc);
