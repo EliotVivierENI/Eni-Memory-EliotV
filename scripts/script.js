@@ -199,13 +199,14 @@ function verif() {
       cartesRetournees[0].attr("data-value") ===
       cartesRetournees[1].attr("data-value")
     ) {
-      for (let i = 0; i < cartesRetournees.length; i++) {
-        cartesRetournees[i].addClass("bg-reussite");
-        cartesRetournees[i].toggleClass("retourne");
-      }
-      verrouillage = false;
-
-      resetCartes();
+      setTimeout(() => {
+        for (let i = 0; i < cartesRetournees.length; i++) {
+          cartesRetournees[i].addClass("bg-reussite");
+          cartesRetournees[i].toggleClass("retourne");
+        }
+        verrouillage = false;
+        resetCartes();
+      }, 0);
     } else {
       setTimeout(() => {
         for (let i = 0; i < cartesRetournees.length; i++) {
