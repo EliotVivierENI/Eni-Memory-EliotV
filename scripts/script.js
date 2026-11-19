@@ -69,8 +69,6 @@ function init() {
 
     nbCartes = parseInt($("#nombre").val())*2;
 
-    
-
 
 plateauActif = [];
 $('input[type="checkbox"]:checked').each(function() {
@@ -90,15 +88,9 @@ if(plateauActif.length*2<nbCartes){
     return
 }
 
-console.table(plateauActif)
-console.log(plateauActif.length)
-
-melanger(plateauActif)
 
 
-
-    generationPlateau(nbCartes);
-    placerCartes();
+placerCartes();
   });
 
   $("#monPlateau").on("click", "#plateau img", retournerImg);
@@ -140,6 +132,10 @@ function melanger(monTab) {
 
 //Assigne une sous valeur entre 1 et 6 compris à chaque image
 function placerCartes() {
+
+melanger(plateauActif)
+generationPlateau(nbCartes);
+
   const index = Array.from({ length: nbCartes / 2 }, (_, i) => i + 1);
 
   let pairesIndex = [...index, ...index];
