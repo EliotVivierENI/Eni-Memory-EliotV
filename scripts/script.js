@@ -84,7 +84,15 @@ $('input[type="checkbox"]:checked').each(function() {
   plateauActif.push(...tableauDuTheme);
 });
 
-console.table(plateauActif);
+
+if(plateauActif.length*2<nbCartes){
+    alert("Erreur, Total de cartes insuffisant")
+    return
+}
+
+console.table(plateauActif)
+console.log(plateauActif.length)
+
 melanger(plateauActif)
 
 
