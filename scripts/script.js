@@ -2,6 +2,7 @@
 let cartesRetournees = [];
 let compteur = 0;
 let nbCartes = 12;
+let verrouillage = false;
 
 // --------------------------
 // Mes tableaux d'images ----
@@ -43,7 +44,7 @@ const alphabet = Array.from(
 );
 
 const animaux = Array.from(
-  { length: 28 },
+  { length: 27 },
   (_, i) => `ressources/animaux/${i + 1}.webp`,
 );
 
@@ -70,16 +71,16 @@ function init() {
 
     
 
-// 2. On boucle sur chaque checkbox cochée
+
 plateauActif = [];
 $('input[type="checkbox"]:checked').each(function() {
-  // 3. $(this).val() lit l'attribut value="..." de la case (ex: "legumes")
+ 
   const nomTheme = $(this).val();
 
-  // 4. On va chercher le tableau correspondant dans votre objet "themes"
+  
   const tableauDuTheme = themes[nomTheme];
 
-  // 5. On ajoute toutes ses images dans plateauActif grâce aux trois points (...)
+ 
   plateauActif.push(...tableauDuTheme);
 });
 
@@ -143,6 +144,11 @@ function placerCartes() {
 
 //Affiche la carte après un clic
 function retournerImg() {
+
+    if(verrouillage){
+        return
+    }
+
   $(this).toggleClass("retourne");
 console.log(plateauActif)
   $(this).attr("src", plateauActif[$(this).attr("data-value") - 1]);
@@ -159,15 +165,18 @@ console.log(plateauActif)
 function verif() {
   if (cartesRetournees.length == 2) {
     compteur++;
+    verrouillage = true;
     $("#coup").text(compteur);
     if (
       cartesRetournees[0].attr("data-value") ===
       cartesRetournees[1].attr("data-value")
+      
     ) {
       for (let i = 0; i < cartesRetournees.length; i++) {
         cartesRetournees[i].addClass("bg-reussite");
         cartesRetournees[i].toggleClass("retourne");
-      }
+    }
+    verrouillage = false;
 
       resetCartes();
     } else {
@@ -176,8 +185,9 @@ function verif() {
           cartesRetournees[i].attr("src", "ressources/question.svg");
           cartesRetournees[i].toggleClass("retourne");
           cartesRetournees[i].css("pointer-events", "auto");
+          
         }
-
+        verrouillage = false;
         resetCartes();
       }, 1200);
     }
@@ -235,22 +245,24 @@ Mode Sombre/Clair ( refaire chaque code couleur avec variable)
 */
 
 function generationPlateau(nbCartes) {
-  const $box = $("<section>", { class: "box" }).html(`
-    <h2>Plateau Légumes : 4 x 3</h2>
-    <div class="plateau" id="plateau"></div>
-    <p>Nombres de coup joués : <span id="coup">0</span>.</p>
-    <button id="btn-reset">Recommencer la partie</button>
-  `);
+  
+  $("#monPlateau")
+    .addClass("box")
+    .html(`
+      <h2>Plateau : <span id="cartes">${nbCartes}</span> cartes</h2>
+      <div class="plateau" id="plateau"></div>
+      <p>Nombres de coup joués : <span id="coup">0</span>.</p>
+      <button id="btn-reset">Recommencer la partie</button>
+    `);
 
+  
   for (let i = 0; i < nbCartes; i++) {
-    $box.find("#plateau").append(
+    $("#plateau").append(
       $("<img>", {
         src: "ressources/question.svg",
         alt: "",
         id: "img_" + i,
-      }),
+      })
     );
   }
-
-  $("#monPlateau").empty().append($box);
 }
