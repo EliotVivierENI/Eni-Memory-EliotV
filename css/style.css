@@ -2,6 +2,7 @@
     --couleur-bg:#FFFDB9;
     --couleur-secondaire:#8080806b;
     --couleur-reussite:rgb(1, 255, 1) ;
+    --blanc:white;
     
 }
 
@@ -47,7 +48,7 @@ footer div {
 nav, footer {
     background-color: var(--couleur-secondaire);
     padding: 2vw;
-        color: white;
+        color: var(--blanc);
         font-size: 1vw;
 
 }
@@ -58,7 +59,7 @@ h2,p {
 
 .btn_style{
     text-decoration: none;
-    color: white;
+    color: var(--blanc);
 
 }
 
@@ -111,6 +112,58 @@ ul.ma-liste {
 /* ---------------- */
 /* ---------------- */
 
+.styleFormJeu fieldset {
+     padding: 2vw;
+    border: 2px dotted var(--blanc);
+    border-radius: 1rem;
+}
+
+.styleFormJeu form {
+    display: flex;
+    justify-content: center;
+    gap: 1vh;
+    flex-direction: column;
+    
+}
+
+.styleFormJeu label,.styleFormJeu input , .styleFormJeu legend{
+    font-size: 1vw;
+}
+.styleFormJeu input{
+     padding: 0.3rem;
+    border-radius: 5px
+    ;
+    border: var(--couleur-secondaire);
+}
+
+.styleFormJeu input:focus{
+    outline: none;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem; 
+
+}
+
+
+.option-item {
+  display: flex;
+  align-items: center; 
+  gap: 0.5rem;         
+}
+
+
+.option-item input[type="checkbox"] {
+  margin: 0;
+  cursor: pointer;
+}
+
+.option-item label {
+  cursor: pointer;
+  user-select: none; 
+}
 
 
 
@@ -155,7 +208,7 @@ ul.ma-liste {
 
 .bg-reussite {
     background-color: var(--couleur-reussite) !important; 
-    border: 2px solid white !important;
+    border: 2px solid var(--blanc) !important;
 }
 
 .retourne{
@@ -168,19 +221,26 @@ ul.ma-liste {
     padding:0.5rem 1rem 0.5rem 1rem ;
     border-radius: 0.5rem;
     border: none;
-    color: white;
+    color: var(--blanc);
     background-color: rgba(255, 0, 0, 0.493);
 }
 #btn-reset:hover{
     scale: 1.05;
     transition: ease-in 0.3s;
-    border: white;
+    border: var(--blanc);
     color: black;
     background-color:rgba(208, 255, 0, 0.877) ;
 }
 
+
+
+
+
+
 /* ---------------- */
-/* Styles Formulaire */
+/* ---------------- */
+/* Styles Formulaires Inscription / Se connecter */
+/* ---------------- */
 /* ---------------- */
 
 .cible fieldset {
@@ -244,16 +304,8 @@ ul.ma-liste {
 /* Styles Profil */
 /* ---------------- */
 
-/* #generationProfil2 div {
-    width: 100%;
-    display: flex;
-    align-items: center;
-   
-}
 
-#generationProfil2 p {
-    width: 30%;
-}  */
+
 #generationProfil div {
     width: 100%;
     display: flex;

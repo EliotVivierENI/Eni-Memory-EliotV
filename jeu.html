@@ -29,10 +29,12 @@
         </nav>
     </header>
      
-    <main class="container">
+    <main class="container ">
      
-        <section class="box">
-<form action="" method="get" id="formPlateau">
+        <section class="box styleFormJeu">
+            <fieldset>
+                <legend>Génération du Plateau</legend>
+    <form action="" method="get" id="formPlateau">
         <label for="nombre">Nombres de cartes :</label>
         <input
           type="number"
@@ -42,14 +44,51 @@
           max="20"
           step="2"
           required
+          placeholder="Choissisez un nombre entre 4 et 20. Ce nombre doit obligatoirement être pair
+          "
         />
-      
+
+            <p>Thèmes :</p>
+ <div class="options-grid">
+  <div class="option-item">
+    <input type="checkbox" name="valeur1" id="valeur1" />
+    <label for="valeur1">Légumes (6 cartes)</label>
+  </div>
+
+  <div class="option-item">
+    <input type="checkbox" name="valeur2" id="valeur2" checked />
+    <label for="valeur2">Dinosaures (10 cartes)</label>
+  </div>
+
+  <div class="option-item">
+    <input type="checkbox" name="valeur3" id="valeur3" />
+    <label for="valeur3">Alphabet (26 cartes)</label>
+  </div>
+
+  <div class="option-item">
+    <input type="checkbox" name="valeur4" id="valeur4" />
+    <label for="valeur4">Légumes (6 cartes)</label>
+  </div>
+
+  <div class="option-item">
+    <input type="checkbox" name="valeur5" id="valeur5" checked />
+    <label for="valeur5">Dinosaures (10 cartes)</label>
+  </div>
+
+  <div class="option-item">
+    <input type="checkbox" name="valeur6" id="valeur6" />
+    <label for="valeur6">Alphabet (26 cartes)</label>
+  </div>
+</div>
+
+        
 
        
           
-        </datalist>
+      
         <input type="submit">
         </form>
+        </fieldset>
         </section>
         <br>
         <section class="box" id="monPlateau">
