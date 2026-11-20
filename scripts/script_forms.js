@@ -56,6 +56,28 @@ function verifMDPS() {
   });
 }
 
+/* -----------------------------------------
+--------------------------------------------
+-----Fonctions affichage des popups --------
+--------------------------------------------
+------------------------------------------*/
+
+function afficherPopupReussie() {
+  $("#notif").html(`Connexion réussie ! <br> Redirection`);
+  $("#notif").css("display", "block");
+  $("#notif").css("background-color", "var(--success");
+}
+function afficherPopupErreur() {
+  $("#notif").text("Erreur de connexion !");
+  $("#notif").css("display", "block");
+  $("#notif").css("background-color", "red");
+}
+function cacherPopup() {
+  $("#notif").text("Connexion réussie !");
+  $("#notif").css("display", "none");
+  $("#notif").css("background-color", "var(--couleur-reussite");
+}
+
 /* ---------------------------------
 ------------------------------------
 -----Fonctions modification --------
@@ -70,5 +92,8 @@ function storeData(event) {
   event.preventDefault();
   const donnees = Object.fromEntries(new FormData(monForm));
   localStorage.setItem(CLE_STOCKAGE, JSON.stringify(donnees));
-  window.location.href = "log.html";
+  afficherPopupReussie();
+  setTimeout(() => {
+    window.location.href = "log.html";
+  }, 2000);
 }

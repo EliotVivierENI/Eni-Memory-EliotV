@@ -91,6 +91,8 @@ function init() {
   $("#monPlateau").on("click", "#plateau img", retournerImg);
 
   $("#monPlateau").on("click", "#btn-reset", resetJeu);
+  $("#notif-result").on("click", "#btn-popup-reset", resetJeu);
+  $("#notif-result").on("click", "#close", cacherPopup);
 
   $(window).on("keyup", function (e) {
     if (e.key === " " || e.code === "Space") {
@@ -109,6 +111,7 @@ function resetJeu() {
   $("#plateau").find("img").removeClass("bg-reussite");
   $("#plateau").find("img").removeClass("retourne");
   $("#plateau").find("img").css("pointer-events", "auto");
+  cacherPopup();
   placerCartes();
 }
 
@@ -132,7 +135,7 @@ function generationPlateau(nbCartes) {
       <h2>Plateau : <span id="cartes">${nbCartes}</span> cartes</h2>
       <div class="plateau" id="plateau"></div>
       <p>Nombres de coup joués : <span id="coup">0</span>.</p>
-      <button id="btn-reset">Recommencer la partie</button>
+      <button id="btn-reset" class="btn_style_reset">Recommencer la partie</button>
     `);
 
   for (let i = 0; i < nbCartes; i++) {
@@ -241,8 +244,28 @@ function victoire() {
     }
   }
   setTimeout(() => {
-    alert(
-      `Victoire ! \nLe joueur remporte la partie en ${compteur} coups ! \nAppuie sur barre espace pour relancer.`,
-    );
+    afficherPopupReussie();
   }, 1000);
+}
+
+//--------------------------------------------------------------------------
+// Fonction génération PopUp Victoire
+//--------------------------------------------------------------------------
+
+function afficherPopupReussie() {
+  $("#notif-result").html(`<div><h2>Bravo !</h2>
+        <p>Vous avez réussi en <span id="coups"></span> coups</p>
+        <button id="btn-popup-reset" class="btn_style_reset">Recommencer la partie</button></div>
+        <div id="close"><p>Fermer</p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M183.1 137.4C170.6 124.9 150.3 124.9 137.8 137.4C125.3 149.9 125.3 170.2 137.8 182.7L275.2 320L137.9 457.4C125.4 469.9 125.4 490.2 137.9 502.7C150.4 515.2 170.7 515.2 183.2 502.7L320.5 365.3L457.9 502.6C470.4 515.1 490.7 515.1 503.2 502.6C515.7 490.1 515.7 469.8 503.2 457.3L365.8 320L503.1 182.6C515.6 170.1 515.6 149.8 503.1 137.3C490.6 124.8 470.3 124.8 457.8 137.3L320.5 274.7L183.1 137.4z"/></svg></div>`);
+  $("#coups").text(compteur);
+  $("#notif-result").css("display", "flex");
+}
+
+//--------------------------------------------------------------------------
+// Fonction pour cacher la PopUp Victoire
+//--------------------------------------------------------------------------
+
+function cacherPopup() {
+  $("#notif-result").text("Connexion réussie !");
+  $("#notif-result").css("display", "none");
 }
