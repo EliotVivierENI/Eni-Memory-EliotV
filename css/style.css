@@ -5,6 +5,13 @@
   --blanc: white;
 }
 
+/* :root {
+  --couleur-bg: #eed02959;
+  --couleur-secondaire: #43e2e76b;
+  --couleur-reussite: rgb(1, 255, 1);
+  --blanc: white;
+} */
+
 @import url("https://fonts.googleapis.com/css2?family=Intel+One+Mono:ital,wght@0,300..700;1,300..700&display=swap");
 
 /* ------------------------------- */
